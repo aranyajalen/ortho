@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="ortho_theme" translate="label" sortOrder="50">
+            <label>Ortho Theme</label>
+        </tab>
+        <section id="featured_settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Featured Product Settings</label>
+            <tab>ortho_theme</tab>
+            <resource>Ortho_Theme::config</resource>
+            <group id="general" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Featured Product Settings</label>
+                <field id="isenable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="title" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+                <field id="limit" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Max. Product On Home Page</label>
+					<depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+				<field id="isleftenable" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sidebar Column</label>
+					<comment><![CDATA[Featured Product  enabled in Sidebar]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+				<field id="sidebarlimit" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                     <label>Max. Product On Side Bar</label>
+					<depends>
+						 <field id="isenable">1</field>
+						 <field id="isleftenable">1</field>
+					</depends>
+                </field>
+            </group>
+			<!--<group id="featured_metadata" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Stand Alone page</label>
+                <field id="layout" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Page Layout</label>
+                    <source_model>Magento\Cms\Model\Page\Source\PageLayout</source_model>
+                </field>
+				<field id="meta_title" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Mask for Meta Title</label>
+                    <comment>Use Featured Product Name placeholder</comment>
+                </field>
+                <field id="meta_keyword" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Mask for Meta Keywords</label>
+                    <comment>Meta Keyword placeholders</comment>
+                </field>
+                <field id="meta_description" translate="label comment" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Mask for Meta Description</label>
+                    <comment>Meta Description For Fetured Product Page</comment>
+                </field>
+            </group>-->
+          
+        </section>
+        
+    </system>
+</config>

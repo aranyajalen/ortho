@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="ortho_theme" translate="label" sortOrder="100">
+            <label>Ortho Theme</label>
+        </tab>
+        <section id="ortho_settings" translate="label" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Ortho Theme Settings</label>
+            <tab>ortho_theme</tab>
+            <resource>Ortho_Theme::config</resource>
+           <!-- <group id="general" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="header_type" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Header Type</label>
+                    <source_model>Ortho\Theme\Model\Config\Settings\Headertype</source_model>
+                </field>
+				<field id="footer_type" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Footer Type</label>
+                    <source_model>Ortho\Theme\Model\Config\Settings\Footertype</source_model>
+                </field>
+                <field id="header_text" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enter Header Text</label>
+                </field>
+            </group>-->
+			<group id="newsletter" translate="label" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Newsletter Popup</label>
+                <field id="isenable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Newsletter Popup Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="cookiename" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cookie Name</label>
+					<comment><![CDATA[If you change this than popup agin display to all customer.]]></comment>
+					 <depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+				<field id="cookietime" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cookie Time(Days)</label>
+					<comment><![CDATA[After days show Popup again.]]></comment>
+					 <depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+            </group>
+			<group id="advancemenu" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Advancemenu Settings</label>
+                <field id="isenable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Advance Menu Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="ishomelinkenable" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home Link Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					 <depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+				<field id="staticblockbefore" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static Block Before Position</label>
+					<comment><![CDATA[In order to display a custom block with images or other html content in the before advance menu popup, use the Static Block with the ID like advancemenu_top_block_3 where 3 is the category id.]]></comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+		
+				<field id="staticblockafter" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static Block After Position</label>
+					<comment><![CDATA[In order to display a custom block with images or other html content in the after advance menu popup, use the Static Block with the ID like advancemenu_bottom_block_3 where 3 is the category id.]]></comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+				
+				<field id="iscustomenable" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Menu enable</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+				
+				
+				<field id="custommenuname" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Menu Name</label>
+					<depends>
+						 <field id="isenable">1</field>
+						  <field id="iscustomenable">1</field>
+						  
+					</depends>
+                </field>
+				
+				<field id="custommenulink" translate="label comment" type="text" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Menu Link</label>
+					<comment><![CDATA[Redirection of custom menu to which page complete url like http://www.domain.com/custom]]></comment>
+					<depends>
+						 <field id="isenable">1</field>
+						  <field id="iscustomenable">1</field>
+					</depends>
+                </field>
+				
+				<field id="custommenublock" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Menu Block Id</label>
+					<depends>
+						 <field id="isenable">1</field>
+						  <field id="iscustomenable">1</field>
+					</depends>
+                </field>
+				
+				
+				
+				
+			</group>
+			<group id="leftcolumn" translate="label" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Sidebar Column Settings</label>
+                <field id="isenable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sidebar Category Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				 <field id="leftbannerenable" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sidebar Common Staticblock Enable</label>
+					<comment><![CDATA[In order to display a custom block with images or other html content in the sidebar, use the Static Block with the ID like left_banner_common]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				 <field id="leftcategoryenable" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sidebar Categorywise Staticblock Enable</label>
+					<comment><![CDATA[In order to display a custom block with images or other html content in the sidebar, use the Static Block with the ID like left_banner_category_3,   where 3 is category id]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+			</group>
+			<group id="productpage" translate="label" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Product Page Settings</label>
+                <field id="isenable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product page Static block Enable</label>
+					<comment><![CDATA[In order to display a custom block with images or other html content in the product page, use the Static Block with the ID like product_custom_block]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="customtabenable" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product page Custom Tab Enable</label>
+					<comment><![CDATA[In order to display a custom block with images or other html content in the tab, use the Static Block with the ID like product_custom_tab]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+			</group>
+			<!--<group id="contactpage" translate="label" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Contact Page Map Settings</label>
+                <field id="isenable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Google Map On Contact Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="mapposition" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Map Position</label>
+                    <source_model>Ortho\Theme\Model\Config\Settings\Contactmap</source_model>
+                    <depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+				<field id="maptitle" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Store Title</label>
+					<depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+                <field id="latitude" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Latitute of your Location</label>
+					<depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+				<field id="longitude" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Longitude of your Location</label>
+					<depends>
+						 <field id="isenable">1</field>
+					</depends>
+                </field>
+				<field id="contactaddress" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact Page Adress Enable</label>
+					<comment><![CDATA[In order to display a custom block with images or other html content in the contact, use the Static Block with the ID with contact_block]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+			-->
+			
+			
+			
+			
+        </section>
+        
+    </system>
+</config>

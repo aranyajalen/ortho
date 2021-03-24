@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="page.main.title" destination="page.wrapper" before="page.top"/>
+		<!--
+		<block class="Magento\Theme\Block\Html\Title" name="page.main.title.top" template="html/title_main.phtml" />
+		<referenceBlock name="page.main.title.top">
+            <arguments>
+                <argument name="css_class" xsi:type="string">product</argument>
+                <argument name="add_base_attribute" xsi:type="string">itemprop="name"</argument>
+            </arguments>
+        </referenceBlock>
+		-->
+		 <block class="Magento\Catalog\Block\Product\View" name="page.main.title.top" template="product/view/productname.phtml" before="product.info.price"/>
+		
+        
+		 <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
+         <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+		 <!-- put  short description before the addtocart --> 
+		 <move element="product.info.overview" destination="product.info.main" before="product.info"/>
+         <move element="page.main.title.top" destination="product.info.main" before="-" />
+		
+    </body>
+</page>

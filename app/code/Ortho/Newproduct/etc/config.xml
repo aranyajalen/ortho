@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <new_settings>
+            <general>
+                <isenable>1</isenable>
+                <title>New Product</title>
+                <limit>8</limit>
+                <isleftenable>0</isleftenable>
+                <sidebarlimit>3</sidebarlimit>
+            </general>
+			<new_metadata>			
+				<layout>2columns-left</layout>
+				<meta_title>New Product</meta_title>
+				<meta_keyword>New-product,new</meta_keyword>
+				<meta_description>Buy Our New Product Collection</meta_description>
+			</new_metadata>
+        </new_settings>
+    </default>
+</config>

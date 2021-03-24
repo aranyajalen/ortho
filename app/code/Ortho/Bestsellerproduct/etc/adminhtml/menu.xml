@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+		<!--<add id="Ortho_Theme::main_menu" title="Ortho Theme" module="Ortho_Theme" sortOrder="60" resource="Ortho_Theme::all"/>-->
+        <add id="Ortho_Bestsellerproduct::bestseller_settings" title="Bestseller Product Settings" module="Ortho_Bestsellerproduct" sortOrder="50" parent="Ortho_Theme::main_menu" action="adminhtml/system_config/edit/section/bestseller_settings" resource="Ortho_Theme::theme_settings"/>
+    </menu>
+</config>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+      
+	
+	  
+	  <referenceContainer name="sidebar.main">
+		
+			
+		<block class="Ortho\Theme\Block\Category\Leftcategory" name="left.menu" template="Ortho_Theme::callouts/leftmenu.phtml" before="-" ifconfig="ortho_settings/leftcolumn/isenable" />
+	 </referenceContainer>	
+	   
+	  <referenceContainer name="sidebar.additional">
+			<block class="Magento\Framework\View\Element\Template" name="left.banner.common" before="new_left" after="special_left" template="Ortho_Theme::callouts/side_banner_common.phtml" ifconfig="ortho_settings/leftcolumn/leftbannerenable" />
+			<block class="Magento\Framework\View\Element\Template" name="left.banner.categorywise" template="Ortho_Theme::callouts/side_categorywise_block.phtml" ifconfig="ortho_settings/leftcolumn/leftcategoryenable" />
+		</referenceContainer>
+		
+	
+	
+	  
+	</body>
+</page>

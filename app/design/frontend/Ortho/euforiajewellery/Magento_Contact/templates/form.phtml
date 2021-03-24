@@ -1,0 +1,128 @@
+<?php
+    $_contacthelper = $this->helper('Ortho\Theme\Helper\Data');
+   	$_mapstatus = $_contacthelper->getMapStatus();
+	$_contactstatus = $_contacthelper->getContactAdressStatus();
+    if($_mapstatus){
+        $_latitude = $_contacthelper->getMapLatitude();
+        $_longitude = $_contacthelper->getMapLongitude();
+		$_title = $_contacthelper->getMapTitle();
+		$_position = $_contacthelper->getMapPosition();
+}
+?>
+
+<?php if($_mapstatus){
+if($_position == 1){
+?>
+<style>a.map_link{color:transparent;}</style>
+<div id='gmap_canvas' style='height:400px;width:100%;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='http://www.maps-generator.com/' class="map_link">maps-generator</a>
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><script type='text/javascript' src='http://embedmaps.com/google-maps-authorization/script.js?id=5d14471add48f8f7ddc24a5512f412892f1481e2'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(<?php echo $_latitude; ?>, <?php echo $_longitude; ?>),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(<?php echo $_latitude; ?>, <?php echo $_longitude; ?>)});infowindow = new google.maps.InfoWindow({content:'<?php echo $_title; ?>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+<?php 
+}
+}
+?>
+
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="col-lg-12  col-md-12  col-sm-12  col-xs-12">
+<div class="row">
+<?php if($_contactstatus){
+	echo '<div class="col-lg-8  col-md-8  col-sm-12  col-xs-12 contact_enable">';
+	} else{
+	echo '<div class="col-lg-12  col-md-12  col-sm-12  col-xs-12">';
+	}
+?>
+<div class="contact_form">
+<form class="form contact"
+      action="<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>"
+      id="contact-form"
+      method="post"
+      data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Write Us') ?></span></legend><br />
+        <div class="field note no-label"><?php /* @escapeNotVerified */ echo __('Jot us a note and we’ll get back to you as quickly as possible.') ?></div>
+       
+	   	<div class="col-lg-12  col-md-12  col-sm-12  col-xs-12">
+	   	<div class="row">
+		<div class="row">
+	   	<div class="col-lg-4  col-md-4 col-sm-12  col-xs-12">
+	    <div class="field name required">
+            <label class="label" for="name"><span><?php /* @escapeNotVerified */ echo __('Name') ?></span></label>
+            <div class="control">
+                <input name="name" id="name" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+		</div>
+		
+		
+		<div class="col-lg-4  col-md-4 col-sm-12  col-xs-12">
+        <div class="field email required">
+            <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        </div>
+		
+		<div class="col-lg-4  col-md-4 col-sm-12  col-xs-12">
+		<div class="field telephone">
+            <label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('Phone Number') ?></span></label>
+            <div class="control">
+                <input name="telephone" id="telephone" title="<?php /* @escapeNotVerified */ echo __('Phone Number') ?>" value="" class="input-text" type="text" />
+            </div>
+        </div>
+		</div>
+		</div>
+		</div>
+		</div>
+		
+        <div class="field comment required">
+            <label class="label" for="comment"><span><?php /* @escapeNotVerified */ echo __('What’s on your mind?') ?></span></label>
+            <div class="control">
+                <textarea name="comment" id="comment" title="<?php /* @escapeNotVerified */ echo __('What’s on your mind?') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+        <?php echo $block->getChildHtml('form.additional.info'); ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?php /* @escapeNotVerified */ echo __('Submit') ?>" class="action submit primary">
+                <span><?php /* @escapeNotVerified */ echo __('Submit') ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+<?php if($_contactstatus){
+echo '<div class="col-lg-4  col-md-4  col-sm-12  col-xs-12">';
+echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('contact_block')->toHtml();
+echo '</div>';
+}
+?>
+</div>
+</div>
+
+
+
+
+<?php if($_mapstatus){
+if($_position == 2){
+?>
+<br />
+<br />
+<style>a.map_link{color:transparent;}</style>
+<div id='gmap_canvas' style='height:400px;width:100%;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='http://www.maps-generator.com/' class="map_link">maps-generator</a>
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><script type='text/javascript' src='http://embedmaps.com/google-maps-authorization/script.js?id=5d14471add48f8f7ddc24a5512f412892f1481e2'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(<?php echo $_latitude; ?>, <?php echo $_longitude; ?>),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(<?php echo $_latitude; ?>, <?php echo $_longitude; ?>)});infowindow = new google.maps.InfoWindow({content:'<?php echo $_title; ?>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+<?php 
+}
+}
+?>

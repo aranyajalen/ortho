@@ -1,0 +1,86 @@
+<?php $newsletterhelper = $this->helper('Ortho\Theme\Helper\Data'); ?>
+<?php 
+$newsletterstatus = $newsletterhelper->getNewsletterStatus();
+if($newsletterstatus){
+$cookiename = $newsletterhelper->getCookieName();
+$cookieday = $newsletterhelper->getCookieDay();
+if (is_numeric($cookieday)){
+$cookieday = $cookieday;
+}else{
+$cookieday = 365;
+}
+
+?>
+	<?php $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('newsletter_popup')->toHtml() ?>
+	<?php if($block!=''){ ?>
+		<div style="display:none">
+			<div id="newsletter-popup">
+				<div class="block-popup-subscribe">
+					<div class="block-popup-top">
+						<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('newsletter_popup')->toHtml();  ?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var cookienewname = '<?php echo $cookiename;  ?>';
+			var cookienewday = <?php echo $cookieday;  ?>;
+			require(
+				[
+					'jquery',
+					'Magento_Ui/js/modal/modal'
+				],
+				function(
+					$,
+					modal
+				) {
+					$(window).load(function () {
+						if($(window).width() > 991) {
+							if(getCookie(cookienewname)!='themepopup'){
+								if ($('#newsletter-popup').length) {
+									var options = {
+										type: 'popup',
+										responsive: true,
+										innerScroll: true,
+										modalClass:'newsletter-modalpopup'
+									};
+									var newsletterPopup = modal(options, $('#newsletter-popup'));
+									$('#newsletter-popup').trigger('openModal');
+								}
+							}
+						}
+					});
+					
+					function getCookie(cname) {
+						var name = cname + "=";
+						var ca = document.cookie.split(';');
+						for(var i=0; i<ca.length; i++) {
+							var c = ca[i];
+							while (c.charAt(0)==' ') c = c.substring(1);
+							if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+						}
+						return "";
+					} 
+					
+					
+					//check box Click Function popup
+					$('#newsletter-popup .checkbox #nopopup').click(function(){
+						noPopup('nopopup');
+					});
+					function noPopup(el){
+						if($('#'+el).prop('checked')) {
+							var d = new Date();
+							var totaltime =  24*60*60*1000*cookienewday;
+							var time =d.getTime() + totaltime;
+							d.setTime(time);
+							var expires = "expires="+d.toUTCString();
+							document.cookie = cookienewname + "=" + 'themepopup' + "; " + expires;
+						} else {
+							document.cookie = cookienewname + "= ''; -1";
+						}
+					}
+				}
+			);
+		</script>
+	<?php } ?>
+<?php } ?>

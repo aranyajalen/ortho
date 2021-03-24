@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bestseller_settings>
+            <general>
+                <isenable>1</isenable>
+                <title>Bestseller Product</title>
+                <limit>8</limit>
+                <isleftenable>0</isleftenable>
+                <sidebarlimit>3</sidebarlimit>
+            </general>
+			<bestseller_metadata>			
+				<layout>2columns-left</layout>
+				<meta_title>Bestseller Product</meta_title>
+				<meta_keyword>Bestseller-product,bestseller</meta_keyword>
+				<meta_description>Buy Our Bestseller Product Collection</meta_description>
+			</bestseller_metadata>
+        </bestseller_settings>
+    </default>
+</config>

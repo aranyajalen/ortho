@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Ortho_Theme::main_menu" title="Ortho Theme" module="Ortho_Theme" sortOrder="50" resource="Ortho_Theme::all"/>
+	  <!--  <add id="Ortho_Theme::ortho_theme" title="Ortho Theme" module="Ortho_Theme" sortOrder="20" parent="Ortho_Theme::main_menu" resource="Ortho_Theme::all"/>-->
+        <add id="Ortho_Theme::theme_settings" title="Theme Settings" module="Ortho_Theme" sortOrder="50" parent="Ortho_Theme::main_menu" action="adminhtml/system_config/edit/section/ortho_settings" resource="Ortho_Theme::theme_settings"/>
+    </menu>
+</config>

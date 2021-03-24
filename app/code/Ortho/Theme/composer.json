@@ -1,0 +1,25 @@
+{
+    "name": "ortho/ortho-theme",
+    "description": "N/A",
+    "require": {
+        "php": "~5.5.0|~5.6.0|~7.0.0"
+    },
+    "suggest": {
+        "magento/module-translation": "100.0.*",
+        "magento/module-theme-sample-data": "Sample Data version:100.0.*"
+    },
+    "type": "magento2-module",
+    "version": "100.0.3",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Ortho\\Theme\\": ""
+        }
+    }
+}

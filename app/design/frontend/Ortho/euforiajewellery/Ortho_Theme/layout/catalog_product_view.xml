@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+     
+		<referenceContainer name="product.info.main">
+            <block class="Magento\Framework\View\Element\Template" name="product_custom_block" after="-" template="Ortho_Theme::product/view/custom_product_block.phtml"  ifconfig="ortho_settings/productpage/isenable" />
+        </referenceContainer>
+		
+		<referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="product_custom_tab" after="-" template="Ortho_Theme::product/view/custom_product_tab.phtml" group="detailed_info" ifconfig="ortho_settings/productpage/customtabenable">
+			<arguments>
+				<argument translate="true" name="title" xsi:type="string">Custom Tab</argument>
+			</arguments>
+			</block>
+        </referenceContainer>
+        <move element="product_custom_tab" destination="product.info.details" after="-"/>
+		
+    </body>
+</page>

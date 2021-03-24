@@ -1,0 +1,60 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see \Magento\Theme\Block\Html\Topmenu
+ */
+?>
+<?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+<?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+<?php
+$_menuhelper = $this->helper('Ortho\Theme\Helper\Data');
+$modulestatus = $_menuhelper->getAdvanceMenu();
+
+if($modulestatus){
+$Homelink = $_menuhelper->getHomeMenuStatus();
+$customMenuStatus = $_menuhelper->getCustomBlockStatus();
+?>
+<nav id="advancemenu" class="navigation advance-megamenu desktop-menu">
+    <ul id="desktopmenu" class="advance-menu">
+		<?php if($Homelink){ ?>
+		<li class="level0 nav-0 level-top"><a href="<?php echo $this->getUrl('') ?>" class="level-top ui-corner-all"><span>Home</span></a></li>
+		<?php } ?>
+        <?php /* @escapeNotVerified */ echo $_menu; ?>
+		<?php 
+		if($customMenuStatus){
+			$customMenuName = $_menuhelper->getCustomBlockName();
+			$customMenuId = $_menuhelper->getCustomBlockId();	
+			$customMenuUrl = $_menuhelper->getCustomBlockUrl();	
+		?>
+			<li class="level0 nav-custom level-top"><a href="<?php echo $customMenuUrl; ?>" class="level-top ui-corner-all"><span><?php echo $customMenuName; ?></span></a>
+			<?php  	if($customMenuId) { ?>
+				<div class="popup-menu popup-custom">
+				<div class="popup-menu-inner popup-category-custom">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($customMenuId)->toHtml(); ?>
+				</div>
+				</div>
+			<?php } ?>
+			</li>
+		<?php } ?>
+    </ul>
+<?php  } else {  ?>
+<nav class="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?php /* @escapeNotVerified */ echo $_menu; ?>
+    </ul>
+<?php } ?>
+
+	<ul id="mobilemenu" data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?php /* @escapeNotVerified */ echo $_menu; ?>
+    </ul>
+</nav>

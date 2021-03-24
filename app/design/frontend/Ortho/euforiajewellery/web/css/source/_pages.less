@@ -1,0 +1,51 @@
+// /**
+//  * Copyright © 2016 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .pages {
+        .lib-pager();
+		
+		strong.page {
+			
+		}
+		a.page {
+			.lib-css(transition, all .6s);
+			&:hover {
+				
+			}
+		}		
+        .action {
+            width: 30px;
+			border: none;
+			.lib-css(transition, all .6s);
+            &.previous {
+                margin-right: 0px;
+				&:before {
+				}
+				&:hover {
+				
+					&:before {
+						
+					}
+				}
+            }
+            &.next {
+                margin-left: 0px;
+				&:before {
+					
+				}
+				&:hover {
+					&:before {
+						
+					}
+				}
+            }
+        }
+    }
+}
