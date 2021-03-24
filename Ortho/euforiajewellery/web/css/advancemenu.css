@@ -1,0 +1,121 @@
+@media (min-width: 992px) {
+	.advance-megamenu.navigation .level0 .submenu {
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		min-width: auto;
+		display: block;
+		padding: 15px 0;
+		left: 0;
+		margin: 0 !important;
+		padding: 0;
+		position: relative;
+		z-index: 1;
+		margin-top: 11px;
+		width:100%;
+	}
+	.advance-megamenu.navigation .level0 .submenu .submenu {
+	left: auto !important;
+	top: auto !important;
+	}
+	#desktopmenu {
+		display: none;
+	}
+	#mobilemenu {
+		display: block;
+	}
+	
+	.advance-megamenu.navigation li.level0 {
+	position: static;
+	}
+	
+	.advance-megamenu .popup-menu {
+		border-top:1px solid #ddb293;
+		display: none;
+		position: absolute;
+		width: auto;
+		color: #a4a4a4;
+		background-color: #3b3b3b;
+    	top: 75px !important;
+	/*
+		box-shadow: -2px 4px 6px 1px rgba(0, 0, 0, 0.15);
+		-moz-box-shadow: -2px 4px 6px 1px rgba(0, 0, 0, 0.15);
+		-webkit-box-shadow: -2px 4px 6px 1px rgba(0, 0, 0, 0.15);
+		-o-box-shadow: -2px 4px 6px 1px rgba(0, 0, 0, 0.15);
+	*/
+		padding:20px 20px 20px 20px;
+	}
+	.advance-megamenu .navigation .level0{
+	position:static !important;
+	}
+	.advance-megamenu.navigation .popup-menu-inner .level1 > a {
+		display:block;
+		color:#ddb293;
+		text-transform:uppercase;
+		font-weight:500;
+		padding: 0px 0px 8px;
+		/*margin-bottom: 10px;
+    	border-bottom: 1px solid #555;
+		*/
+		margin-right:35px;
+		transition: 0.3s;
+		-webkit-transition: 0.3s;
+		-moz-transition: 0.3s;
+	}
+	.advance-megamenu.navigation .popup-menu-inner .level1 > a:hover {
+		color:#a4a4a4;
+		text-decoration:none;
+		background: transparent;
+	}
+	.advance-megamenu.navigation .popup-menu-inner .level1 .level2 {
+		margin-bottom:4px;
+	}
+	.advance-megamenu.navigation .popup-menu-inner .level1 .level2 > a {
+		color:#a4a4a4;
+		font-weight:400;
+		font-size:13px;
+		display:block;
+		padding:2px 0px;
+		transition: 0.3s;
+		-webkit-transition: 0.3s;
+		-moz-transition: 0.3s;
+		text-transform:capitalize;
+	}
+	.advance-megamenu.navigation .popup-menu-inner .level1 .level2 > a:hover {
+		color:#fff;
+		text-decoration:none;
+		background: transparent;
+	}
+	.advance-megamenu.navigation li.level0:hover .popup-menu {
+		display: block;
+	}
+	.advance-megamenu .advance-submenu .level1 {
+		float: left;
+		padding:0px 0px;
+	}
+	li.level1.nav-1-1.first.parent {
+		padding-left: 0;
+	}
+	li.level1.nav-1-3.last.parent {
+		padding-right: 0;
+	}
+	.navigation .level0.advance-submenu {
+		padding:0px;
+	}
+}
+.popup-menu-bottom {
+    clear: both;
+    margin-top: 15px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+}
+#mobilemenu {
+	display: none;
+}
+#desktopmenu {
+	display: block;
+}
+.navigation .menu-active.level0 > .level-top{
+	color:#ddb293;
+}

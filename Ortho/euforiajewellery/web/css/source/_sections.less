@@ -1,0 +1,121 @@
+// /**
+//  * Copyright © 2016 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .product.data.items {
+        .lib-data-accordion();
+        margin-bottom: @indent__base;
+        margin-left: 0;
+        margin-right: 0px;
+        .item.title {
+            a {
+                position: relative;
+                .lib-icon-font(
+                    @_icon-font-content: @icon-down,
+                    @_icon-font-size: @font-size__base,
+                    @_icon-font-line-height: @icon-font__line-height,
+                    @_icon-font-color: @icon-font__color,
+                    @_icon-font-color-hover: @icon-font__color-hover,
+                    @_icon-font-color-active: @icon-font__color-active,
+                    @_icon-font-margin: @icon-font__margin,
+                    @_icon-font-vertical-align: @icon-font__vertical-align,
+                    @_icon-font-position: after,
+                    @_icon-font-display: false
+                );
+                &:after {
+                    position: absolute;
+                    right: @accordion-control__padding-right;
+                    top: @accordion-control__padding-top;
+                }
+            }
+            &.active a:after {
+                content: @icon-up;
+            }
+        }
+        .value p:last-child {
+            margin-bottom: 0;
+        }
+        .table-wrapper {
+            margin: 0;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .product.data.items {
+        .lib-data-tabs(
+		@_tab-control-font-size: 18px,
+		@_tab-control-font-weight: @tab-control__font-weight,
+		@_tab-control-line-height: 41px,
+		@_tab-content-margin-top: 41px,
+		@_tab-control-height: 41px,
+		@_tab-control-background-color: #3b3b3b,
+		@_tab-control-background-color-hover: #ddb293,
+		@_tab-control-background-color-active: #ddb293,
+		@_tab-control-color: @tab-control-color,
+		@_tab-control-color-hover: #fff,
+		@_tab-control-color-active: #fff,
+		@_tab-content-background-color: transparent,
+		@_tab-content-border: none,
+		@_tab-content-border-top-status: true,
+		@_tab-content-padding-top: 0px,
+		@_tab-content-padding-right: 0px,
+		@_tab-content-padding-bottom: 0px,
+		@_tab-content-padding-left: 0px
+		
+		);
+        border-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+		text-align:left;
+        .item.title a:after {
+            display: none;
+        }
+		.item.title {
+			float: none;
+			display: inline-block;
+			margin: 0px 7px 0px 0px;
+			.lib-css(transition, all .8s);
+			&:hover {
+				//border-bottom:2px solid #ddb293;
+
+			}
+			&.active {
+				//border-bottom:2px solid #ddb293;
+				color: #141414 !important;
+				span.counter {
+				
+				}
+			}
+			&:first-child a {
+		
+			}
+			.switch {
+				height: 41px;
+				text-transform: capitalize;
+				color: #ddd !important;
+				padding: 1px 27px 1px 27px;
+				font-family: @tab-control-font-family;
+			}
+		}
+		.item.content {
+			text-align:left;
+			border-top: 2px solid #ddb293;
+			
+			> div{
+				padding: 27px 20px;
+				background-color: transparent;
+			}
+		}
+    }
+}

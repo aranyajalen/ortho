@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+
+
+
+?>
+<div class="block block-category-banner">
+<?php 
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+	
+	if($category){
+	$leftbannerid ='left_banner_category_'.$category->getId();
+    // echo $category->getName();    //For getting category name
+	echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($leftbannerid)->toHtml();
+	}
+?>
+</div>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+		
+    </head>
+    <body>	
+        
+		
+	
+       
+   
+		
+		<referenceContainer name="sidebar.additional">
+			<block class="Ortho\Featuredproduct\Block\Sidebar" name="featured_left" template="Ortho_Featuredproduct::sidebar_list.phtml" after="-" />
+		</referenceContainer>
+		<referenceContainer name="after.body.start">			
+            <block class="Magento\Framework\View\Element\Js\Components" name="head.components" as="components" template="Ortho_Featuredproduct::js/components.phtml"/>
+        </referenceContainer>
+		
+    </body>
+</page>

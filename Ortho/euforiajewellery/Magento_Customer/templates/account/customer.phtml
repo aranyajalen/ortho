@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php if($block->customerLoggedIn()): ?>
+    <li class="customer-welcome">
+    
+        <?php if($block->getChildHtml()):?>
+        <div class="customer-menu">
+            <?php echo $block->getChildHtml();?>
+        </div>
+        <?php endif; ?>
+    </li>
+<?php endif; ?>

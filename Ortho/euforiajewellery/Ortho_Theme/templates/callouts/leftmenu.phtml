@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Ortho\Theme\Block\category\Leftcategory;
+ */
+?>
+<?php /*?><?php
+$categories = $this->getStoreCategories(true,false,true);
+$categoryHelper = $this->getCategoryHelper();
+?>
+<ul>
+<?php
+foreach($categories as $category):
+     if (!$category->getIsActive()) {
+        continue;
+     }
+?>
+<li><a href="<?php echo $categoryHelper->getCategoryUrl($category) ?>"><?php echo $category->getName() ?></a></li>
+<?php  
+if($childrenCategories = $this->getChildCategories($category)):
+?>
+<ul>
+<?php
+foreach($childrenCategories as $childrenCategory):
+     if (!$childrenCategory->getIsActive()) {
+        continue;
+     }
+?>
+<li><a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory) ?>"><?php echo $childrenCategory->getName() ?></a></li>
+<?php
+endforeach;
+?>
+</ul>
+<?php
+endif;
+endforeach;
+?>
+</ul><?php */?>
+<div class="block block-side-nav">
+	
+	<div class="block-title">
+		<strong>
+			<?php echo __('Categories');?>
+		</strong>
+	</div>
+	<div class="block-content">
+		<ul id="sidetree">
+		<?php echo $this->getHtml() ?>
+		</ul>
+	</div>
+
+</div>
